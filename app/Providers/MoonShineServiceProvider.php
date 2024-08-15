@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\MoonShine\Resources\CatsResource; 
-use App\MoonShine\Resources\UserResource; 
+use App\MoonShine\Resources\CatResource; 
+use App\MoonShine\Resources\UserResource;
+use App\MoonShine\Resources\BookResource; 
 
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
@@ -58,9 +59,10 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                 ->badge(fn() => 'Check')
                 ->blank(),
                 */
-                MenuGroup::make('Врачи', [ 
-                    MenuItem::make("Юзеры:", new UserResource()),
-                    MenuItem::make("Категории:", new CatsResource())
+                MenuGroup::make('Библиотека', [ 
+     //               MenuItem::make("Юзеры:", new UserResource()),
+                    MenuItem::make("Книги:", new BookResource()),   
+                    MenuItem::make("Категории:", new CatResource())
                     ])
         ];
     }
